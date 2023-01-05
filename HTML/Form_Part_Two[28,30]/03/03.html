@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <div>
+        <label for="selbook">Chose Book: </label>
+        <select name="booklang" id="selbook">
+          <optgroup label="PHP">
+            <option value="PHP v5.0">v5.0</option>
+            <option value="PHP v7.0">v7.0</option>
+            <option value="PHP v8.0">v8.0</option>
+          </optgroup>
+          <optgroup label="Python">
+            <option value="Python v2.0">v2.0</option>
+            <option value="Python v3.0">v3.0</option>
+            <option value="Python v3.9">v3.9</option>
+          </optgroup>
+        </select>
+        <hr />
+      </div>
+      <br />
+      <div>
+        <textarea
+          name="brief"
+          cols="40"
+          rows="20"
+          placeholder="Write Here Why You Want To Learn Programming"
+        ></textarea>
+        <br />
+        <input type="submit" name="send" value="Send" />
+      </div>
+    </form>
+  </body>
+</html>

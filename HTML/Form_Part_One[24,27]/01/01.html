@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="test.py" >
+      <div>
+        <label>Username</label>
+        <br />
+        <input
+          type="text"
+          name="user"
+          required
+          placeholder="write your user name"
+        />
+        <hr />
+      </div>
+      <div>
+        <label>Password</label>
+        <br />
+        <input
+          type="password"
+          name="pass"
+          placeholder="write a complex password"
+        />
+        <hr />
+      </div>
+      <div>
+        <label>Mobile</label>
+        <br />
+        <input
+          type="text"
+          name="mob"
+          value="+20100 (234) 123"
+          placeholder="write a valid number"
+        />
+        <hr />
+      </div>
+      <div>
+        <label>Email</label>
+        <br />
+        <input type="email" name="mail" required placeholder="Your Email" />
+        <hr />
+      </div>
+      <div>
+        <label>Subject</label>
+        <br />
+        <input type="text" name="sub" placeholder="Your Massege" />
+        <hr />
+      </div>
+      <div>
+        <input type="hidden" name="hedinput" value="2022-12-16" />
+        <input type="reset" value="Empty Form" name="reset" />
+        <input type="submit" value="Send Data" name="submit" />
+      </div>
+    </form>
+  </body>
+</html>
