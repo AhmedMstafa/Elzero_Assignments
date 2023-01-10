@@ -1,0 +1,8 @@
+div {
+  max-width: 400px;
+  max-height: 30px;
+  color: white;
+  background-color: #a52a2a;
+  margin: 10px;
+  overflow: hidden;
+}
