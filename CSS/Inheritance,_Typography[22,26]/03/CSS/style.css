@@ -1,0 +1,23 @@
+html {
+  font-size: 20px;
+}
+
+div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.one {
+  font-size: 2.5rem;
+}
+
+.two {
+  font-size: 2rem;
+}
+
+.three {
+  font-size: 1.5rem;
+}

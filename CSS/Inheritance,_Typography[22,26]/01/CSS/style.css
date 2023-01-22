@@ -1,0 +1,24 @@
+.one,
+.two {
+  margin: 20px auto;
+  padding: 10px 30px;
+  text-align: center;
+  font-size: 30px;
+  width: 400px;
+}
+
+.one {
+  border: 3px solid #ff5722;
+}
+
+.two {
+  border: 3px solid #009688;
+
+}
+
+.one p,
+.two p {
+  background-color: #eee;
+  border: inherit;
+  padding: inherit;
+}
