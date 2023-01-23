@@ -1,0 +1,43 @@
+.parent {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #eee;
+}
+
+p {
+  clear: both;
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+.parent div {
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  background-color: #ddd;
+  padding: 15px 0;
+  margin: 15px 0 0 15px;
+}
+
+.one {
+  width: calc((100% - 30px) /1);
+  margin-top: 15px;
+}
+
+.two,
+.three,
+.four {
+  width: calc((100% - 60px) /3);
+}
+
+.five,
+.six {
+  width: calc((100% - 45px) /2);
+}
+
+.seven,
+.eight,
+.nine,
+.teen {
+  width: calc((100% - 75px) /4);
+}
