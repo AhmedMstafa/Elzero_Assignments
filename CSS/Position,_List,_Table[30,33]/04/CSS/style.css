@@ -1,0 +1,49 @@
+table {
+  width: 700px;
+  margin: 20px auto;
+  font-family: sans-serif;
+  text-align: center;
+  background-color: #fff;
+  border-bottom: 2px solid #2aa79b;
+}
+
+table img {
+  width: 50px;
+  height: auto;
+  border: 2px solid #fff;
+}
+
+caption {
+  font-weight: bold;
+  padding: 10px;
+}
+
+thead tr th {
+  background-color: #404040;
+  color: #fff;
+  padding: 10px 15px;
+}
+
+tbody tr td {
+  background-color: #eee;
+  padding: 10px 15px;
+}
+
+tbody tr button:first-child {
+  background-color: #03a9f4;
+  color: #fff;
+  display: inline-block;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+tbody tr button:last-child {
+  background-color: #e91e63;
+  color: #fff;
+  display: inline-block;
+  margin-left: 5px;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
