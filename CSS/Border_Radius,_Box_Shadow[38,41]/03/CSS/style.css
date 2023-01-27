@@ -1,0 +1,87 @@
+.parent {
+  width: 550px;
+  margin: 20px auto;
+  background-color: #fff;
+  font-family: sans-serif;
+  position: relative;
+}
+
+.parent::before {
+  content: "Or";
+  font-weight: bold;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 50%;
+  color: #fff;
+  background-color: #03a9f4;
+  position: absolute;
+  top: 140px;
+  left: 262px;
+  z-index: 1;
+}
+
+.parent::after {
+  content: "";
+  height: 100%;
+  width: 1px;
+  background-color: #03a9f4;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 274px;
+}
+
+.basic,
+.pro {
+  width: 250px;
+  height: 300px;
+  text-align: center;
+  background-color: #eee;
+  float: left;
+  position: relative;
+}
+
+.basic::before {
+  content: "Free";
+  width: 200px;
+  height: 200px;
+  font-size: 40px;
+  line-height: 5;
+  background-color: #ddd;
+  border-radius: 50%;
+  top: 70px;
+  position: absolute;
+  left: 30px;
+}
+
+.pro::before {
+  content: "$30";
+  width: 200px;
+  height: 200px;
+  font-size: 40px;
+  background-color: #ddd;
+  border-radius: 50%;
+  line-height: 5;
+  position: absolute;
+  top: 70px;
+  left: 30px;
+}
+
+.basic {
+  margin-right: 50px;
+}
+
+.clean {
+  clear: both;
+}
+
+span {
+  display: inline-block;
+  width: 80%;
+  padding: 10px;
+  margin: 15px auto;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #03a9f4;
+}
