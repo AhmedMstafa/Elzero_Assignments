@@ -1,0 +1,27 @@
+div {
+  width: 600px;
+  height: 50px;
+  margin: 20px auto;
+  line-height: 50px;
+  text-align: center;
+  letter-spacing: 5px;
+  font-weight: bold;
+  font-size: 25px;
+  background-color: #eee;
+  position: relative;
+}
+
+div::first-letter {
+  color: #f44336;
+}
+
+div::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  width: 620px;
+  height: 70px;
+  z-index: -1;
+  background: linear-gradient(to right, #f44336, #f44336 20%, #2297f4 20%, #2297f4 40%, #4caf50 40%, #4caf50 60%, #e91e63 60%, #e91e63 80%, #673ab7 80%, #673ab7);
+}
