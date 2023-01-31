@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #eee;
+  font-family: sans-serif;
+}
+
+.main {
+  height: 100vh;
+  width: 100vw;
+  background-color: #eee;
+  display: grid;
+  grid-template-columns: repeat(8, minmax(auto, 1fr));
+  grid-template-rows: repeat(11, minmax(auto, 1fr));
+  gap: 10px;
+}
+
+div {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border-bottom: 3px solid #fd5019;
+  flex-grow: 0;
+}
+
+
+div div h2 {
+  font-size: 13px;
+  flex-grow: 2;
+}
+
+div h3 {
+  font-size: 12px;
+  color: #aaa;
+  flex-grow: 2;
+}
+
+div p:first-of-type {
+  font-weight: bold;
+  line-height: 1.6;
+  font-size: 10px;
+  flex-grow: 3;
+
+}
+
+div p:last-of-type {
+  line-height: 1.6;
+  font-size: 10px;
+  flex-grow: 3;
+}
+
+.one {
+  grid-column: span 4;
+  grid-row: span 3;
+}
+
+.two {
+  grid-column: span 2;
+  grid-row: span 3;
+}
+
+.three {
+  grid-column: span 2;
+  grid-row: span 9;
+  background-color: #000;
+  color: #fff;
+}
+
+.four {
+  grid-column: span 2;
+  grid-row: span 6;
+}
+
+.five {
+  grid-column: span 4;
+  grid-row: span 3;
+  background-color: #000;
+  color: #fff;
+}
+
+.six {
+  grid-column: span 4;
+  grid-row: span 3;
+}
+
+.seven {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.eght {
+  grid-column: span 2;
+  grid-row: span 2;
+  background-color: #000;
+  color: #fff;
+}
+
+.nigne {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.teen {
+  grid-column: span 2;
+  grid-row: span 2;
+}
