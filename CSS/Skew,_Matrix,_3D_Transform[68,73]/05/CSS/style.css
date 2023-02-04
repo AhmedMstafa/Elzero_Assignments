@@ -1,0 +1,87 @@
+body {
+  perspective: 800px;
+}
+
+div:first-of-type {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  position: relative;
+  font-family: sans-serif;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+div:first-of-type:hover {
+  transform: rotatey(180deg);
+}
+
+div:first-of-type:before,
+div:first-of-type:after {
+  font-weight: bold;
+  font-size: 30px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+}
+
+div:first-of-type:before {
+  content: "Front";
+  background-color: #fa3664;
+}
+
+div:first-of-type:after {
+  content: "Back";
+  background-color: #1692fc;
+  position: absolute;
+  transform: rotateY(180deg);
+}
+
+div:last-of-type {
+  width: 200px;
+  height: 200px;
+  margin: 20px auto;
+  position: relative;
+  font-family: sans-serif;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+div:last-of-type:hover {
+  transform: rotatex(180deg);
+}
+
+div:last-of-type:before,
+div:last-of-type:after {
+  font-weight: bold;
+  font-size: 30px;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+}
+
+div:last-of-type:before {
+  content: "Front";
+  background-color: #fa3664;
+}
+
+div:last-of-type:after {
+  content: "Back";
+  background-color: #1692fc;
+  position: absolute;
+  transform: rotatex(180deg);
+}

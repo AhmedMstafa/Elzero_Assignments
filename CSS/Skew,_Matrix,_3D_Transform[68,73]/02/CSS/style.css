@@ -1,0 +1,26 @@
+h1 {
+  width: 150px;
+  height: 50px;
+  position: relative;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #009688;
+  color: #fff;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 0;
+  background-color: #fff;
+  width: 5px;
+  height: 100%;
+  border-left: 15px solid #009688;
+  transform: skewx(15deg);
+}
