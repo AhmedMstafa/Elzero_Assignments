@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+span {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #ddd;
+  position: relative;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  border-radius: 50%;
+  border: 5px solid;
+  border-color: #000 #000 transparent #000;
+  -webkit-animation: rotate 1s linear infinite reverse;
+  animation: rotate 1s linear infinite reverse;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    transform: translate(-50%, 50%) rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: translate(-50%, 50%) rotate(360deg);
+  }
+}
