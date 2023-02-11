@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.contaner div {
+  text-align: center;
+  padding: 5px;
+  margin-top: 20px;
+  background-color: #eee;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.contaner div h4 {
+  font-size: 16px;
+  padding: 5px;
+}
+
+.contaner div p {
+  padding: 5px;
+  font-size: 12px;
+  color: #333;
+}
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+  .two,
+  .three,
+  .four {
+    display: inline-block;
+    width: calc(33% - 10px);
+  }
+
+  .three {
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  h4 {
+    color: red;
+  }
+}
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+  .two,
+  .three {
+    display: inline-block;
+    width: calc(50% - 10px);
+  }
+
+  .two {
+    margin-right: 15px;
+  }
+
+  .three {
+    margin-left: 0;
+    margin-right: 0;
+
+  }
+
+  .four {
+    display: block;
+    width: 100%;
+  }
+
+  h4 {
+    color: #07988b;
+  }
+}

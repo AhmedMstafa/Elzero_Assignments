@@ -1,0 +1,15 @@
+.assign-one {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 20px auto;
+  background-color: #eee;
+  padding: 20px;
+}
+
+@media print {
+  .assign-one {
+    font-size: 40px;
+  }
+}
