@@ -1,0 +1,40 @@
+.arrow {
+  width: 600px;
+  margin: 50px auto;
+  background-color: #ddd;
+  padding: 20px;
+  position: relative;
+}
+
+.top::before,
+.right::before,
+.bottom::before,
+.left::before {
+  content: "";
+  position: absolute;
+  border: 20px solid;
+}
+
+.top::before {
+  border-color: transparent transparent #ddd transparent;
+  top: -40px;
+  left: 50%;
+}
+
+.right::before {
+  border-color: transparent transparent transparent #ddd;
+  top: 10px;
+  right: -40px;
+}
+
+.bottom::before {
+  border-color: #ddd transparent transparent transparent;
+  bottom: -40px;
+  left: 50%;
+}
+
+.left::before {
+  border-color: transparent #ddd transparent transparent;
+  top: 10px;
+  left: -40px;
+}
