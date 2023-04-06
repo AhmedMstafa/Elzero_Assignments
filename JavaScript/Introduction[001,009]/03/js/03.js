@@ -1,0 +1,1 @@
+console.log(" %cElzero %cWeb %cShcool", "color: red; font-size: 40px; font-wight: bold", "color: green; font-size: 40px; font-wight: bold", "color: blue; font-size: 40px; font-wight: bold")
