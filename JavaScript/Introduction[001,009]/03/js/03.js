@@ -1,1 +1,6 @@
-console.log(" %cElzero %cWeb %cShcool", "color: red; font-size: 40px; font-wight: bold", "color: green; font-size: 40px; font-wight: bold", "color: blue; font-size: 40px; font-wight: bold")
+console.log(
+  "%cElzero%c Web %cSchool",
+  "color:red;font-size:40px",
+  "color:green;font-weight:bold;font-size:40px",
+  "background-color:blue;color:wight;font-size: 40px"
+);

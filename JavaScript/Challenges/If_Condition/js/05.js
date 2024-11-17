@@ -11,15 +11,21 @@ if (a < 10) {
 } else if (a > 40) {
   console.log("> 40");
 } else {
-  console.log("Unknown")
+  console.log("Unknown");
 }
 
 // Write With Ternary If Syntax
-(a < 10) ? console.log(10) : (a >= 10 && a <= 40) ? console.log("10 To 40") : (a > 40) ? console.log("> 40") : console.log("Unknown");
+a < 10
+  ? console.log(10)
+  : a >= 10 && a <= 40
+  ? console.log("10 To 40")
+  : a > 40
+  ? console.log("> 40")
+  : console.log("Unknown");
 
-let st = "Elzero Web School"
+let st = "Elzero Web School";
 
-if ((st.length + st.length).toString() === "34") {
+if ((st.length * 2).toString() === "34") {
   console.log("Good");
 }
 

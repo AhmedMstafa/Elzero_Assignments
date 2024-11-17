@@ -4,10 +4,10 @@ let num = "10";
 console.log(+num + +num); // 20
 
 // Solution Two
-console.log(num.toString().length * num); // 20
+console.log(+(num.length + (+null + ""))); // 20
 
 // Solution Three
-console.log(Number(num) + Number(num)); // 20
+console.log(num << true); // 20
 
 // Solution Four
-console.log((true + true) * num); // 20
+console.log(num * (true + !false)); // 20
