@@ -1,21 +1,18 @@
 let start = 0;
 let swappedName = "elZerO";
-let temp = [];
 
-for (i = start; i < swappedName.length; i++) {
-  if (swappedName[i] === swappedName[i].toUpperCase()) {
-    temp += swappedName[i].toLocaleLowerCase();
-  } else if (swappedName[i] === swappedName[i].toLocaleLowerCase()) {
-    temp += swappedName[i].toUpperCase();
-  }
+let temp = "";
 
+for (let i = start; i < swappedName.length; i++) {
+  temp +=
+    swappedName[i] === swappedName[i].toUpperCase()
+      ? swappedName[i].toLowerCase()
+      : swappedName[i].toUpperCase();
 }
-swappedName = temp
 
+swappedName = temp;
 
-console.log(swappedName)
-
-
+console.log(swappedName);
 
 // Output
 // "ELzERo"

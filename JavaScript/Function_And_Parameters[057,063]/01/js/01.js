@@ -1,12 +1,9 @@
-function sayHello(theName, theGender) {
-  // Your Code Here
-  if (theGender === "Male") {
-    console.log(`Hello Mr ${theName}`);
-  } else if (theGender === "Female") {
-    console.log(`Hello Miss ${theName}`);
-  } else {
-    console.log(`Hello ${theName}`);
-  }
+function sayHello(theName, theGender = "") {
+  console.log(
+    `Hello${
+      theGender === "" ? " " : theGender === "Male" ? " Mr " : " Miss "
+    }${theName}`
+  );
 }
 
 // Needed Output

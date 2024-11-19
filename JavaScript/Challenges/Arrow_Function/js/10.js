@@ -6,7 +6,6 @@
 // [1] Convert To Arrow Function
 // [1] Print The Output [Arguments May Change]
 
-
 // let names = function (...na) {
 //   return `${typeof na.join()} [${na.join("], [")}] => Done !`;
 // };
@@ -24,6 +23,6 @@ console.log(names("Osama", "MOhamed", "Ali", "Ibrahim", "Ahmed"));
 
 let myNumbers = [20, 50, 10, 60];
 
-let calc = (one, two, ...nums) => two - one + nums[one % one] - nums[one / one];
+let calc = (one, two, ...nums) => one * (two + myNumbers.length);
 
-console.log(calc(10, 60, 50, 20)); // 80
+console.log(calc(10, myNumbers.length, myNumbers)); // 80

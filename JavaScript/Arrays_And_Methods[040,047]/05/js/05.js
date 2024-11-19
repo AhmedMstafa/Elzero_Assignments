@@ -3,22 +3,12 @@ let haystack = ["PHP", "JS", "Python"];
 
 // Write 3 Solutions
 
+haystack.includes(needle) ? console.log("Found") : console.log("Not Found");
 
-if (haystack.lastIndexOf(needle) === -1) {
-  console.log("Not Found")
-} else {
-  console.log("Found")
-}
+haystack.lastIndexOf(needle) !== -1
+  ? console.log("Found")
+  : console.log("Not Found");
 
-
-if (haystack.indexOf(needle) === -1) {
-  console.log("Not Found")
-} else {
-  console.log("Found")
-}
-
-if (haystack.includes(needle) === true) {
-  console.log("Found")
-} else {
-  console.log("Not Found")
-}
+haystack.indexOf(needle) !== -1
+  ? console.log("Found")
+  : console.log("Not Found");

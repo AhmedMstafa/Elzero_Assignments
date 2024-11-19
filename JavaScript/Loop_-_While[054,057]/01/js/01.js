@@ -2,13 +2,11 @@ let friends = ["Ahmed", "Sayed", "Ali", 1, 2, "Mahmoud", "Amany"];
 let index = 0;
 let counter = 0;
 
-
-
-while (index < friends.length) {
-  if (friends[index][counter] !== "A" && typeof friends[index] !== "number") {
-    console.log(friends[index])
+while (counter < friends.length) {
+  if (friends[counter][index] !== "A" && typeof friends[counter] !== "number") {
+    console.log(friends[counter]);
   }
-  index++
+  counter++;
 }
 
 // Output

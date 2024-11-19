@@ -1,21 +1,22 @@
 function ageInTime(theAge) {
-  // Your Code Here
-  if (typeof theAge === "number") {
-    if (theAge > 10 && theAge < 100) {
-      console.log(`Your Age is ${theAge}
-    => ${theAge * 12} Months
-    => ${theAge * 12 * 4} Weeks
-    => ${theAge * 12 * 4 * 7} Days
-    => ${theAge * 12 * 4 * 7 * 24} Hours
-    => ${theAge * 12 * 4 * 7 * 24 * 60} Minuts
-    => ${theAge * 12 * 4 * 7 * 24 * 60 * 60} Secounds
-    `)
-    } else {
-      console.log("Age Out Of Range")
-    }
-  } else {
-    console.log("Rigth A Number")
+  if (theAge > 100 || theAge < 10) {
+    console.log("Age Out Of Range");
+    return;
   }
+
+  let daysInYear = 365;
+  let hoursInYear = daysInYear * 24;
+  let minutesInYear = hoursInYear * 60;
+  let secondsInYear = minutesInYear * 60;
+  let weaksInYear = daysInYear / 7;
+  let monthsInYear = daysInYear / 12;
+
+  console.log(`Sedonds Example => ${theAge * secondsInYear}`);
+  console.log(`Minutes Example => ${theAge * minutesInYear}`);
+  console.log(`Hours Example   => ${theAge * hoursInYear}`);
+  console.log(`Days Example    => ${theAge * daysInYear}`);
+  console.log(`Weeks Example   => ${theAge * weaksInYear}`);
+  console.log(`Months Example  => ${theAge * monthsInYear}`);
 }
 
 // Needed Output
