@@ -1,105 +1,84 @@
-
-
-// Body Style
-document.body.style.cssText = "margin: 0; background-color: rgb(236,236,236); font-family: Tahoma, Arial;";
-
-
-// Add Header
-let header = document.createElement("header");
-header.className = "website-head";
-document.body.appendChild(header);
-
-// Header Style
-header.style.cssText = "display: flex; padding: 20px; background-color: rgb(255,255,255); justify-content: space-between; align-items: center;";
-
-// Add Logo
-let logo = document.createElement("div");
-logo.className = "Website Logo";
-let logoContent = document.createTextNode("Elzero");
-logo.appendChild(logoContent);
-header.appendChild(logo);
-
-// Logo Style
-logo.style.cssText = "font-wight: bold; color: rgb(35,169,110); font-size:26px;";
-
-
-// Add Nav
-let nav = document.createElement("ul");
-nav.className = "menu";
-header.appendChild(nav)
-
-// Nav Style
-nav.style.cssText = "padding: 0px; margin: 0px; display: flex; gap: 10px; list-style: none;"
-
-
-// Add Li's
-let liOne = document.createElement("li");
-liOne.className = "link";
-let liOneContent = document.createTextNode("Home");
-liOne.appendChild(liOneContent);
-let liTwo = document.createElement("li");
-liTwo.className = "link";
-let liTwoContent = document.createTextNode("About");
-liTwo.appendChild(liTwoContent);
-let liThree = document.createElement("li");
-liThree.className = "link";
-let liThreeContent = document.createTextNode("Service");
-liThree.appendChild(liThreeContent);
-let liFour = document.createElement("li");
-liFour.className = "link";
-let liFourContent = document.createTextNode("Contact");
-liFour.appendChild(liFourContent);
-nav.appendChild(liOne);
-nav.appendChild(liTwo);
-nav.appendChild(liThree);
-nav.appendChild(liFour);
-
-// Li's Style
-let link = document.querySelectorAll(".link");
-for (let i = 0; i < link.length; i++) {
-  link[i].style.cssText = "color: rgb(136,136,136);"
+function createLogo() {
+  let logo = document.createElement("div");
+  logo.innerHTML = `Elzero`;
+  logo.style.cssText =
+    "color:green;margin-left: 20px;font-weight:bold;font-size: 2rem";
+  return logo;
 }
 
-// Add Content Section
-let content = document.createElement("div");
-content.className = "content";
-document.body.appendChild(content);
+function createNavBar() {
+  let nav = document.createElement("ul");
+  let home = document.createElement("li");
+  let about = document.createElement("li");
+  let service = document.createElement("li");
+  let contact = document.createElement("li");
+  home.innerHTML = "Home";
+  about.innerHTML = "About";
+  service.innerHTML = "Service";
+  contact.innerHTML = "Contact";
+  nav.appendChild(home);
+  nav.appendChild(about);
+  nav.appendChild(service);
+  nav.appendChild(contact);
+  nav.style.cssText =
+    "list-style:none;display:flex;gap:20px;margin-right:20px;color:#999;font-weight:bold";
+  return nav;
+}
 
-// Content Style
-content.style.cssText = "display: flex; padding: 20px; flex-wrap: wrap; justify-content: center; gap: 20px; min-height: calc(100vh - 142px); box-sizing: border-box;"
+function createHeader() {
+  let header = document.createElement("header");
+  header.appendChild(createLogo());
+  header.appendChild(createNavBar());
+  header.style.cssText =
+    "display:flex;align-items:center;justify-content:space-between;\
+    height:80px;background-color:#fff";
+  return header;
+}
 
-
-// Add Product
-for (let i = 0; i < 15; i++) {
+function createProduct(number = 0) {
   let product = document.createElement("div");
-  product.className = "product";
-
-  // Add Span
-  let span = document.createElement("span");
-  let spanText = document.createTextNode(`${i + 1}`);
-  span.appendChild(spanText);
-  product.appendChild(span)
-  // Add Pruduct Text
-  let productText = document.createTextNode("Product")
-  product.appendChild(productText)
-  content.appendChild(product)
-
-  // Product Style
-  let prodStyle = document.querySelectorAll(".product");
-  prodStyle[i].style.cssText = "padding: 20px; background-color: rgb(255,255,255); border: 1px solid rgb(221,221,221); width: calc((100% - 40px) / 3); box-sizing: border-box; text-align: center; color: rgb(136,136,136); border-radius: 6px;"
-
-  // Span style
-  let spanStyle = document.querySelectorAll("span");
-  spanStyle[i].style.cssText = "font-size: 40px; color: black; font-weight: normal; display: block; margin-bottom: 10px; margin-top: 10px;"
+  let productNumber = document.createElement("span");
+  productNumber.innerHTML = number;
+  product.appendChild(productNumber);
+  product.append("Product");
+  product.style.cssText =
+    "display:flex;flex-direction:column;align-items:center;justify-content:center;\
+    width:calc((100% / 3) - 20px);height:200px;background-color:white;color:#999";
+  productNumber.style.cssText = "font-size:40px;font-weight:bold;color:#000";
+  return product;
 }
 
-// Add Footer
-let footer = document.createElement("footer");
-footer.className = "footer"
-let footerContent = document.createTextNode("Copyright 2021");
-footer.appendChild(footerContent);
-document.body.appendChild(footer);
+function createSection() {
+  let section = document.createElement("section");
+  section.style.cssText =
+    "display:flex;justify-content:center;flex-wrap:wrap;gap: 20px;background-color:#eee;padding: 15px 0";
+  for (let i = 1; i <= 30; i++) {
+    section.appendChild(createProduct(i));
+  }
 
+  return section;
+}
 
-// Footer Style
-footer.style.cssText = "background-color:  rgb(35,169,110); font-size: 26px; text-align: center; padding: 20px; color: rgb(255, 255, 255);"
+function createFooter() {
+  let footer = document.createElement("footer");
+  footer.innerHTML = `Copyright 2024`;
+  footer.style.cssText =
+    "background-color:green;color:#fff;display:flex;justify-content:center;\
+    align-items:center;height: 100px;font-size: 2rem";
+  return footer;
+}
+
+let createSignature = () => {
+  let signature = document.createElement("meta");
+  signature.name = `author`;
+  signature.content = `Ahmed Mostafa`;
+  console.log(signature);
+  return signature;
+};
+
+document.body.appendChild(createHeader());
+document.body.appendChild(createSection());
+document.body.appendChild(createFooter());
+document.head.appendChild(createSignature());
+document.body.style.cssText =
+  "margin: 0;box-sizing:border-box;font-family: sans-serif";

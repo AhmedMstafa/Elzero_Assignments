@@ -1,12 +1,14 @@
 let myString = "EElllzzzzzzzeroo";
 
+let newString = myString
+  .split("")
+  .filter((e, i, arr) => {
+    return e !== arr[i + 1] ? e : "";
+  })
+  .reduce((acc, e) => {
+    return `${acc}${e}`;
+  });
 
-let nor = myString.split("").filter(function (e, index, array) {
-  console.log(e, index, array[index + 1]);
-  return e !== array[index + 1]
-}).reduce(function (e, c) {
-  return `${e}${c}`
-});
+console.log(newString);
 
-console.log(nor)
 // Elzero
