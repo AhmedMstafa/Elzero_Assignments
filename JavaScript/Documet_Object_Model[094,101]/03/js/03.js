@@ -1,22 +1,19 @@
-let praragraph = document.getElementsByTagName("p");
-praragraph[0].remove();
+const ourElement = document.getElementsByClassName("our-element")[0];
+const paragraph = document.getElementsByTagName("p")[0];
 
+paragraph.remove();
 
-let element = document.getElementsByClassName("our-element");
+const start = document.createElement("div");
+start.classList.add("start");
+start.title = "Start Element";
+start.textContent = "Start";
+start.setAttribute("data-value", "start");
 
-let start = document.createElement("div");
-start.className = "Start Element";
-start.title = "Start";
-start.setAttribute("datat-value", "Start");
-let startText = document.createTextNode("Start");
-start.appendChild(startText);
-element[0].before(start);
+const end = document.createElement("div");
+end.classList.add("end");
+end.title = "End Element";
+end.textContent = "End";
+end.setAttribute("data-value", "end");
 
-let end = document.createElement("div");
-end.className = "End Element";
-end.title = "End";
-end.setAttribute("datat-value", "End");
-let endText = document.createTextNode("End");
-end.appendChild(endText);
-element[0].after(end);
-
+ourElement.before(start);
+ourElement.after(end);

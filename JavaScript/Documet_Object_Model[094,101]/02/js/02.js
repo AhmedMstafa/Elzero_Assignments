@@ -1,44 +1,60 @@
-let add = document.querySelector(".classes-to-add");
-let remove = document.querySelector(".classes-to-remove");
-let current = document.querySelector(".element");
-let classList = document.querySelector(".classes-list").lastElementChild;
-let last = document.querySelector(".assign").getElementsByTagName("div")[0]
-console.log(last)
+const classesToAdd = document.querySelector(".classes-to-add");
+const calssesToRemove = document.querySelector(".classes-to-remove");
+const currentElement = document.querySelector("[title='Current']");
+const List = document.querySelector(".classes-list div");
 
-
-add.onblur = function () {
-  if (add.value !== "") {
-    let addlist = add.value.toLowerCase().split(" ");
-    // console.log(addlist)
-    for (let i = 0; i < addlist.length; i++) {
-      current.classList.add(addlist[i])
-    }
-    function sort(array) {
-      array.sort();
-      for (let i = 0; i < array.length; i++) {
-        let newSpan = document.createElement("span");
-        newSpan.className = `Span${i + 1}`
-        let newText = document.createTextNode(`${array[i]}`);
-        newSpan.appendChild(newText);
-        classList.appendChild(newSpan);
-      }
-    }
-    sort(addlist);
-    add.value = "";
-  }
-}
-remove.onblur = function () {
-  if (remove.value !== "") {
-    let removelist = remove.value.toLowerCase().split(" ");
-    for (let i = 0; i < removelist.length; i++) {
-      current.classList.remove(removelist[i])
-    }
-    remove.value = "";
-  }
+function showClasses() {
+  List.innerHTML = "";
+  currentElement.classList.value
+    .split(" ")
+    .sort()
+    .filter((e) => e.trim() !== "")
+    .forEach((e) => {
+      let element = document.createElement("span");
+      element.innerHTML = e;
+      List.appendChild(element);
+    });
+  if (List.innerHTML.trim() === "") List.innerHTML = "No Classes To Show";
 }
 
+function addClass(element) {
+  if (element.value.trim() === "") return false;
 
+  let classes = element.value.toLowerCase();
+  classes = classes
+    .split(" ")
+    .filter((e) => !currentElement.classList.contains(e) && e !== "")
+    .forEach((e) => currentElement.classList.add(e));
 
+  element.value = "";
 
-// console.log(classList)
-// console.log(remove)
+  return true;
+}
+
+function removeClass(element) {
+  if (element.value.trim() === "") return false;
+
+  let classes = element.value.toLowerCase();
+  classes = classes
+    .split(" ")
+    .filter((e) => currentElement.classList.contains(e))
+    .forEach((e) => currentElement.classList.remove(e));
+
+  element.value = "";
+
+  return true;
+}
+
+showClasses();
+
+classesToAdd.addEventListener("blur", (event) => {
+  if (addClass(event.target)) {
+    showClasses();
+  }
+});
+
+calssesToRemove.addEventListener("blur", (event) => {
+  if (removeClass(event.target)) {
+    showClasses();
+  }
+});

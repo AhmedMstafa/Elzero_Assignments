@@ -24,7 +24,6 @@ let myFavGames = {
   },
 };
 
-
 // Code One => How To Get Object Length ?
 let objectLength = Object.keys(myFavGames).length;
 
@@ -33,10 +32,11 @@ for (let i = 0; i < objectLength; i++) {
   console.log(`The Publisher Is ${Object.values(myFavGames)[i].publisher}`);
   console.log(`The Price Is ${Object.values(myFavGames)[i].price}`);
 
-  // Check If Nested Object Has Property(bestThree)
-  if (typeof Object.values(myFavGames)[i].bestThree === "object") {
+  // Check If Nested Object Has Property (bestThree)
+  if (Object.keys(myFavGames)[i] !== "Trinity Universe") {
     console.log("- Game Has Releases");
-    console.log(`First => ${Object.values(myFavGames)[i].bestThree.one} `);
+
+    console.log(`First => ${Object.values(myFavGames)[i].bestThree.one}`);
     console.log(`Second => ${Object.values(myFavGames)[i].bestThree.two}`);
     console.log(`Third => ${Object.values(myFavGames)[i].bestThree.three}`);
   }
@@ -45,23 +45,23 @@ for (let i = 0; i < objectLength; i++) {
 
 // Ouput
 
-"The Game Name Is Trinity Universe"
-"The Publisher Is NIS America"
-"The Price Is 40"
-"####################"
-"The Game Name Is Titan Quest"
-"The Publisher Is THQ"
-"The Price Is 50"
-"- Game Has Releases"
-"First => Immortal Throne"
-"Second => Ragnarök"
-"Third => Atlantis"
-"####################"
-"The Game Name Is YS"
-"The Publisher Is Falcom"
-"The Price Is 40"
-"- Game Has Releases"
-"First => Oath in Felghana"
-"Second => Ark Of Napishtim"
-"Third => origin"
-"####################"
+// "The Game Name Is Trinity Universe"
+// "The Publisher Is NIS America"
+// "The Price Is 40"
+// "####################"
+// "The Game Name Is Titan Quest"
+// "The Publisher Is THQ"
+// "The Price Is 50"
+// "- Game Has Releases"
+// "First => Immortal Throne"
+// "Second => Ragnarök"
+// "Third => Atlantis"
+// "####################"
+// "The Game Name Is YS"
+// "The Publisher Is Falcom"
+// "The Price Is 40"
+// "- Game Has Releases"
+// "First => Oath in Felghana"
+// "Second => Ark Of Napishtim"
+// "Third => origin"
+// "####################"

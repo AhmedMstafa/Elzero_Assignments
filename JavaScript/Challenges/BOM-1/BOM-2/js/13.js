@@ -1,88 +1,92 @@
-let input = document.querySelector(".input");
-let submit = document.querySelector(".add");
-let tasKsDiv = document.querySelector(".tasks");
+const formNodes = document.forms[0];
+const input = formNodes.firstElementChild;
+const btn = formNodes.lastElementChild;
+const taskList = document.querySelector(".tasks");
 
+let task = {
+  id: 0,
+  content: "",
+  isDeleted: false,
+};
 
-let arrayOfTasks = [];
-
-getDataFromLocalStorge();
-
-if (localStorage.getItem("tasks")) {
-  arrayOfTasks = JSON.parse(localStorage.getItem("tasks"));
+function isValidInput() {
+  return task.content !== "";
 }
 
-submit.onclick = function () {
-  if (input.value !== "") {
-    addTaskToArray(input.value);
+function isLocalStorageEmpty() {
+  return !localStorage.length || !localStorage.getItem("tasks");
+}
+
+function getTasksFromLocalStorage() {
+  if (!isLocalStorageEmpty()) {
+    let tasks = JSON.parse(localStorage.getItem("tasks"));
+    return tasks;
+  }
+  return [];
+}
+
+function deleteTaskFromLocalStorage(taskId) {
+  let tasks = getTasksFromLocalStorage();
+  for (const task in tasks) {
+    if (tasks[task].id === taskId) {
+      tasks[task].isDeleted = true;
+      localStorage.setItem("tasks", JSON.stringify(tasks));
+      return true;
+    }
+  }
+  return false;
+}
+
+function addTaskToLocalStorage() {
+  let tasks = getTasksFromLocalStorage();
+  task.id = Date.now();
+  tasks.push(task);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+function createTaskNode(id, text) {
+  const taskNode = document.createElement("div");
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete");
+  taskNode.classList.add("task");
+  taskNode.setAttribute("data-id", id);
+  taskNode.innerHTML = text;
+  deleteBtn.innerHTML = "Delete";
+  taskNode.appendChild(deleteBtn);
+  return taskNode;
+}
+
+function addTasksToList() {
+  taskList.innerHTML = "";
+  let tasks = getTasksFromLocalStorage();
+  tasks
+    .filter((task) => !task.isDeleted)
+    .forEach((task) => {
+      taskList.appendChild(createTaskNode(task.id, task.content));
+    });
+}
+
+function deletTaskFromList() {}
+
+addTasksToList();
+
+btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (isValidInput()) {
+    addTaskToLocalStorage();
+    addTasksToList();
     input.value = "";
+    task.content = "";
   }
-}
+});
 
-tasKsDiv.addEventListener("click", (e) => {
-  if (e.target.classList.contains("del")) {
-    deleteTaskWith(e.target.parentElement.getAttribute("data-id"));
-    e.target.parentElement.remove();
+input.addEventListener("input", (e) => {
+  task.content = e.target.value.trim();
+});
+
+taskList.addEventListener("click", (e) => {
+  if (e.target && e.target.classList.contains("delete")) {
+    deleteTaskFromLocalStorage(+e.target.parentNode.getAttribute("data-id"));
+    e.target.parentNode.remove();
   }
-  if (e.target.classList.contains("task")) {
-    toggleStatusTasKWith(e.target.getAttribute("data-id"))
-    e.target.classList.toggle("done")
-  }
-})
-
-
-function addTaskToArray(taskText) {
-  const task = {
-    id: Date.now(),
-    title: taskText,
-    completed: false,
-  };
-  arrayOfTasks.push(task);
-  addElementsToPageFrom(arrayOfTasks);
-  addDataTolocalStorgeFrom(arrayOfTasks);
-}
-
-function addElementsToPageFrom(arrayOfTasks) {
-  tasKsDiv.innerHTML = "";
-  arrayOfTasks.forEach((task) => {
-    let div = document.createElement("div");
-    div.className = "task";
-    // ceck if task is done
-    if (task.completed) {
-      div.className = "task done"
-    }
-    div.setAttribute("data-id", task.id);
-    div.appendChild(document.createTextNode(task.title));
-    let span = document.createElement("span");
-    span.className = "del"
-    span.appendChild(document.createTextNode("Delete"));
-    div.appendChild(span);
-    tasKsDiv.appendChild(div);
-  });
-}
-
-
-function addDataTolocalStorgeFrom(arrayOfTasks) {
-  window.localStorage.setItem("tasks", JSON.stringify(arrayOfTasks));
-}
-
-function getDataFromLocalStorge() {
-  let data = window.localStorage.getItem("tasks");
-  if (data) {
-    let tasks = JSON.parse(data);
-    addElementsToPageFrom(tasks)
-  }
-}
-
-function deleteTaskWith(taskId) {
-  arrayOfTasks = arrayOfTasks.filter((task) => task.id != taskId);
-  addDataTolocalStorgeFrom(arrayOfTasks);
-}
-
-function toggleStatusTasKWith(taskId) {
-  for (let i = 0; i < arrayOfTasks.length; i++) {
-    if (arrayOfTasks[i].id == taskId) {
-      arrayOfTasks[i].completed == false ? (arrayOfTasks[i].completed = true) : (arrayOfTasks[i].completed = false);
-    }
-  }
-  addDataTolocalStorgeFrom(arrayOfTasks)
-}
+});

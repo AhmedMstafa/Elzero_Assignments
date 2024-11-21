@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <title>Learn JavaScript</title>
   <script>
-    // Your Code Here
-    window.onload = function () {
+
+    function opneLinkElzeroWebSchool() {
       let links = document.links;
       for (let i = 0; i < links.length; i++) {
         if (links[i].classList.contains("open") && links[i].innerHTML === "Elzero") {
@@ -14,7 +14,10 @@
         }
       }
     }
-    // console.log(document.links)
+
+    window.onload = () => {
+      opneLinkElzeroWebSchool();
+    }
   </script>
 </head>
 
@@ -23,7 +26,7 @@
   <a class="open" href="https://elzero.org">Elzero</a>
   <a class="not" href="https://facebook.com">Facebook</a>
   <a class="linked" href="https://linkedin.com">Elzero</a>
-  <script src="js/main.js"></script>
+  <!-- <script src="main.js"></script> -->
 </body>
 
 </html>
