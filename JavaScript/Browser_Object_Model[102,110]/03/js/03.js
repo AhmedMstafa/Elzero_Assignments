@@ -1,13 +1,22 @@
-let div = document.createElement("div");
-let divText = document.createTextNode("10");
-div.appendChild(divText)
-document.body.appendChild(div)
+function createCounterDiv(from) {
+  let elemnet = document.createElement("div");
+  elemnet.id = "counter";
+  elemnet.textContent = from;
+  return elemnet;
+}
 
+function startCountDown(speed) {
+  const elemnet = document.getElementById("counter");
+  let number = +elemnet.innerHTML;
+  const intervalId = setInterval(() => {
+    if (!number) clearInterval(intervalId);
+    elemnet.innerHTML = number--;
+  }, speed);
+}
 
-let counter = setInterval(() => {
-  if (div.innerHTML >= 1) {
-    div.innerHTML -= 1
-  } else {
-    clearTimeout(counter);
-  }
-}, 1000);
+function counter(from, speed) {
+  document.body.appendChild(createCounterDiv(from));
+  startCountDown(speed);
+}
+
+counter(200000, 1);

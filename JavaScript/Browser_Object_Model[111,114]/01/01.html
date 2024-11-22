@@ -3,98 +3,109 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Open+Sans&family=Roboto&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wght@100;300;400;500&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
-  <title>Document</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:wght@100;300;400;500&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      width: 90%;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #eee;
+      padding: 10px;
+      gap: 10px;
+      border-radius: 6px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      -ms-border-radius: 6px;
+      -o-border-radius: 6px;
+    }
+
+    .container .select-box {
+      display: flex;
+      flex-direction: column;
+      flex-basis: calc(100% / 3);
+      text-align: center;
+    }
+
+    .container .select-box label {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .container .select-box select {
+      border: none;
+      outline: none;
+    }
+  </style>
 </head>
-<style>
-  form {
-    width: 400px;
-    margin: 20px auto;
-    background-color: #2196f3;
-    padding: 20px;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
 
-  label {
-    color: #fff;
-    padding: 2px;
-    font-size: 16px;
-  }
-
-  select {
-    outline: none;
-    background-color: #607d8b;
-    color: #fff;
-    border-radius: 10px;
-    padding: 2px;
-    text-align: center;
-  }
-
-  .lorem {
-    margin: 0 auto;
-    width: 90%;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #eee;
-  }
-</style>
 
 <body>
-  <form action="">
-    <label for="fonts">fonts</label>
-    <select id="fonts">
-      <option value="Open Sans, sans-serif" selected>open</option>
-      <option value="Cairo, sans-serif">cairo</option>
-      <option value="Roboto, sans-serif">roboto</option>
-    </select>
-    <label for="colors">colors</label>
-    <select id="colors">
-      <option value="red" selected>red</option>
-      <option value=" green">green</option>
-      <option value="blue">blue</option>
-      <option value=" black">black</option>
-      <option value="orange">orange</option>
-      <option value="yellow">yellow</option>
-    </select>
-    <label for="font-size">font size</label>
-    <select id="font-size">
-      <option value="16px" selected>16</option>
-      <option value="17px">17</option>
-      <option value="18px">18</option>
-      <option value="19px">19</option>
-      <option value="20px">20</option>
-      <option value="21px">21</option>
-      <option value="22px">22</option>
-      <option value="23px">23</option>
-      <option value="24px">24</option>
-      <option value="25px">25</option>
-      <option value="26px">26</option>
-      <option value="27px">27</option>
-      <option value="28px">28</option>
-      <option value="29px">29</option>
-      <option value="30px">30</option>
-    </select>
-  </form>
-  <div class="lorem">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magni esse earum id repellendus distinctio ratione
-    quibusdam molestias ex fuga dolor autem reiciendis eaque minima, repellat aut pariatur odit. Laudantium modi quo cum
-    deserunt aliquam explicabo veritatis. Pariatur tempore repellat aliquid repellendus accusamus laboriosam expedita
-    ipsa! Numquam itaque alias modi mollitia temporibus nihil dolorum aut, ducimus vel quis saepe, nostrum pariatur
-    voluptates libero quisquam adipisci tempora beatae minima consectetur at quo ex eos! Repellat, eius molestiae sed ut
-    sunt nulla? Nemo voluptates a incidunt unde, nulla vero aspernatur autem. Sed iste deserunt accusamus aperiam
-    asperiores, repellendus commodi molestiae illo placeat?
+  <div class="container">
+    <div class="select-box">
+      <label for="font-family">Font Family</label>
+      <select name="font-family" id="font-family">
+        <option value="Roboto" selected>Roboto</option>
+        <option value="open-sans">Open Sans</option>
+        <option value="cairo">Cairo</option>
+      </select>
+    </div>
+    <div class="select-box">
+      <label for="font-color">Font Color</label>
+      <select name="font-color" id="font-color">
+        <option value="212529" selected>gray</option>
+        <option value="c92a2a">red</option>
+        <option value="a61e4d">pink</option>
+        <option value="862e9c">grape </option>
+        <option value="5f3dc4">violet </option>
+        <option value="364fc7">indigo </option>
+        <option value="1864ab">blue </option>
+      </select>
+    </div>
+    <div class="select-box">
+      <label for="font-size">Font Size</label>
+      <select name="font-size" id="font-size">
+        <option value="16" selected>16</option>
+        <option value="17">17</option>
+        <option value="18">18</option>
+        <option value="19">19</option>
+        <option value="20">20</option>
+        <option value="21">21</option>
+        <option value="22">22</option>
+        <option value="23">23</option>
+        <option value="24">24</option>
+        <option value="25">25</option>
+        <option value="26">26</option>
+        <option value="27">27</option>
+        <option value="29">29</option>
+        <option value="30">30</option>
+        <option value="31">31</option>
+        <option value="32">32</option>
+        <option value="34">34</option>
+        <option value="35">35</option>
+        <option value="36">36</option>
+      </select>
+    </div>
   </div>
-
-
+  <script src="js/01.js"></script>
 </body>
-<script src="js/01.js"></script>
 
 </html>

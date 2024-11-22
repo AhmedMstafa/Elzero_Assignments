@@ -1,88 +1,61 @@
-let fontsOpt = document.querySelectorAll("#fonts option")
-let colorsOpt = document.querySelectorAll("#colors option")
-let fontSizeOpt = document.querySelectorAll("#font-size option")
+function addFontOptoionToLocalStorage(e) {
+  if (e.target.id === "font-family") {
+    localStorage.setItem("fontFamily", e.target.value);
+    return;
+  }
 
-// window.localStorage.clear()
+  if (e.target.id === "font-color") {
+    localStorage.setItem("fonColor", e.target.value);
+    return;
+  }
 
-let fonts = document.querySelector("#fonts")
-let colors = document.querySelector("#colors")
-let fontSize = document.querySelector("#font-size")
-
-
-
-
-
-console.log(document.querySelector(`[value='${window.localStorage.fonts}']`))
-
-
-if (window.localStorage.getItem("fonts")) {
-  fontsOpt.forEach((opt) => {
-    opt.removeAttribute("selected")
-  })
-  document.body.style.fontFamily = window.localStorage.fonts
-  document.querySelector(`[value='${window.localStorage.fonts}']`).setAttribute("selected", "")
-} else {
-  document.body.style.fontFamily = fonts.value
+  if (e.target.id === "font-size") {
+    localStorage.setItem("fontSize", e.target.value);
+    return;
+  }
 }
 
-if (window.localStorage.getItem("colors")) {
-  colorsOpt.forEach((opt) => {
-    opt.removeAttribute("selected")
-  })
-  document.body.style.color = window.localStorage.colors
-  document.querySelector(`[value='${window.localStorage.colors}']`).setAttribute("selected", "")
-} else {
-  document.body.style.color = colors.value
+function getFontOptionFromLocalStorage() {
+  let options = {};
+  options.fontFamily = localStorage.getItem("fontFamily");
+  options.fonColor = localStorage.getItem("fonColor");
+  options.fontSize = localStorage.getItem("fontSize");
+  return options;
 }
 
-if (window.localStorage.getItem("fontSize")) {
-  fontSizeOpt.forEach((opt) => {
-    opt.removeAttribute("selected")
-  })
-  document.body.style.fontSize = window.localStorage.fontSize
-  document.querySelector(`[value='${window.localStorage.fontSize}']`).setAttribute("selected", "")
-} else {
-  document.body.style.fontSize = fontSize.value
+function addFontOptoionsToLocalStorage() {
+  let selectBox = document.querySelectorAll(".select-box");
+  selectBox.forEach((e) => {
+    e.addEventListener("change", (e) => {
+      addFontOptoionToLocalStorage(e);
+      addFontStyleToPage();
+    });
+  });
 }
 
-// window.localStorage.clear()
+function addSeletectToOption() {
+  let options = document.querySelectorAll("option");
+  let option = getFontOptionFromLocalStorage();
+  options.forEach((e) => {
+    e.removeAttribute("selected");
+    if (e.value === option.fontFamily) e.setAttribute("selected", "");
+    if (e.value === option.fonColor) e.setAttribute("selected", "");
+    if (e.value === option.fontSize) e.setAttribute("selected", "");
+  });
+}
 
-fonts.addEventListener('change', (event) => {
-  fontsOpt.forEach((opt) => {
-    opt.removeAttribute("selected")
-  })
-  window.localStorage.fonts = event.target.value;
-  document.body.style.fontFamily = window.localStorage.fonts
-  document.querySelector(`[value='${window.localStorage.fonts}']`).setAttribute("selected", "")
+function addFontStyleToPage() {
+  let select = document.querySelectorAll("select");
+  select.forEach((e) => {
+    if (e.id === "font-family")
+      document.body.style.fontFamily = `${e.value}, serif`;
+    if (e.id === "font-color") document.body.style.color = `#${e.value}`;
+    if (e.id === "font-size") document.body.style.fontSize = `${e.value}px`;
+  });
+}
 
-});
-colors.addEventListener('change', (event) => {
-  colorsOpt.forEach((opt) => {
-    opt.removeAttribute("selected")
-  })
-  // console.log(event.target)
-  window.localStorage.colors = event.target.value;
-  document.body.style.color = window.localStorage.colors
-  document.querySelector(`[value='${window.localStorage.colors}']`).setAttribute("selected", "")
-});
-fontSize.addEventListener('change', (event) => {
-  fontSizeOpt.forEach((opt) => {
-    opt.removeAttribute("selected")
-  })
-  // console.log(event.target)
-  window.localStorage.fontSize = event.target.value;
-  document.body.style.fontSize = window.localStorage.fontSize
-  document.querySelector(`[value='${window.localStorage.fontSize}']`).setAttribute("selected", "")
-});
+addSeletectToOption();
 
+addFontStyleToPage();
 
-
-
-
-
-
-
-
-
-
-
+addFontOptoionsToLocalStorage();

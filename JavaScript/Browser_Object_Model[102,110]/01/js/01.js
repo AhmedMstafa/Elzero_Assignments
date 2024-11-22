@@ -1,31 +1,47 @@
-let p = window.prompt("Print Number From - To", "Example: 5-20");
+let numbers = "";
+let userInput = "";
 
-let arr = [];
-for (let i = 0; i < p.length; i++) {
-  if (!isNaN(parseInt(p[i])) || p[i] === "-") {
-    arr[arr.length] = p[i]
+function parseNumbers(unseInput) {
+  let numbers = unseInput.split("-").filter((e) => !isNaN(parseInt(e)));
+  return numbers.length === 2 ? numbers : [];
+}
+
+function readNumbes() {
+  let isValidInput = true;
+  let message = "Print Number From T0";
+
+  do {
+    if (!isValidInput) {
+      message = "Invalid Inputs Please Enter Two Numbers (From-T0) !";
+    }
+    userInput = prompt(message, "0-20");
+    if (!userInput) return false;
+    numbers = parseNumbers(userInput);
+    isValidInput = numbers.length === 2;
+  } while (!isValidInput);
+  return true;
+}
+
+function createNumberNode(number) {
+  let numberNode = document.createElement("div");
+  numberNode.innerHTML = number;
+  return numberNode;
+}
+
+function pritnNumbers(numbers) {
+  document.body.appendChild(
+    createNumberNode(`${numbers[0]}-${numbers[1]}<hr>`)
+  );
+  for (let i = +numbers[0]; i <= +numbers[1]; i++) {
+    document.body.appendChild(createNumberNode(i));
   }
 }
-arr = arr.join("").split("-")
 
-
-for (let i = +arr[0]; i <= +arr[arr.length - 1]; i++) {
-
-  console.log(i)
+function app() {
+  if (readNumbes()) {
+    numbers = parseNumbers(userInput);
+    pritnNumbers(numbers);
+  }
 }
 
-
-// p = [p.slice(0, p.indexOf("-")), p.slice(p.indexOf("-") + 1)];
-// console.log(p)
-
-
-
-
-
-
-
-
-
-
-
-
+app();

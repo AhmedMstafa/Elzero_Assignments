@@ -1,38 +1,55 @@
-let n = document.querySelector("[type='text']")
-let email = document.querySelector("[type='email']")
-let select = document.querySelector("#select")
-let opts = document.querySelectorAll("option")
+const text = document.querySelector("[type='text']");
+const date = document.querySelector("[type='date']");
+const range = document.querySelector("[type='range']");
+const select = document.querySelector(".select-box");
 
-if (window.sessionStorage.name) {
-  n.value = window.sessionStorage.name
+let userInput = {
+  inputText: "",
+  inputDelete: "",
+  inputRange: "",
+  select: "",
+};
 
-}
-if (window.sessionStorage.email) {
-  email.value = window.sessionStorage.email
-}
-n.onblur = function (e) {
-  if (e !== "")
-    window.sessionStorage.setItem("name", n.value)
-  // n.value = ""
-}
-email.onblur = function (e) {
-  if (e !== "")
-    window.sessionStorage.setItem("email", email.value)
-  // n.value = ""
+function isValidInput(input) {
+  return input !== "";
 }
 
-if (window.sessionStorage.book) {
-  opts.forEach(function (opt) {
-    opt.removeAttribute("selected")
-  })
-  select.value = window.sessionStorage.book
-  document.querySelector(`[value='${window.sessionStorage.book}']`).setAttribute("selected", "")
+function addInputToSessionStorage(inputDom, event, inputType, storgeName) {
+  inputDom.addEventListener(event, (e) => {
+    inputType = e.target.value.trim();
+    if (!isValidInput(inputType)) return;
+    sessionStorage.setItem(storgeName, inputType);
+  });
 }
 
-select.addEventListener("change", function (e) {
-  opts.forEach(function (opt) {
-    opt.removeAttribute("selected")
-  })
-  window.sessionStorage.setItem("book", e.target.value);
-  document.querySelector(`[value='${window.sessionStorage.book}']`).setAttribute("selected", "")
-})
+function getInputFromSessionStorage(storageName) {
+  return sessionStorage.getItem(storageName);
+}
+
+function App() {
+  if (
+    isValidInput((userInput.inputText = getInputFromSessionStorage("text")))
+  ) {
+    text.value = userInput.inputText;
+  }
+  if (
+    isValidInput((userInput.inputDelete = getInputFromSessionStorage("date")))
+  ) {
+    date.value = userInput.inputDelete;
+  }
+  if (
+    isValidInput((userInput.inputRange = getInputFromSessionStorage("range")))
+  ) {
+    range.value = userInput.inputRange;
+  }
+  if (isValidInput((userInput.select = getInputFromSessionStorage("select")))) {
+    select.value = userInput.select;
+  }
+
+  addInputToSessionStorage(text, "blur", userInput.inputText, "text");
+  addInputToSessionStorage(date, "change", userInput.inputDelete, "date");
+  addInputToSessionStorage(range, "input", userInput.inputRange, "range");
+  addInputToSessionStorage(select, "change", userInput.select, "select");
+}
+
+App();

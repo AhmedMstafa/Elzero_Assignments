@@ -1,18 +1,34 @@
-let div = document.createElement("div");
-let divText = document.createTextNode("10");
-div.appendChild(divText)
-document.body.appendChild(div)
+function createCounterDiv(from) {
+  let elemnet = document.createElement("div");
+  elemnet.id = "counter";
+  elemnet.textContent = from;
+  return elemnet;
+}
 
+function startCountDown(speed, order) {
+  const elemnet = document.getElementById("counter");
+  let number = +elemnet.innerHTML;
+  const intervalId = setInterval(() => {
+    if (!number) {
+      order();
+      clearInterval(intervalId);
+    }
+    elemnet.innerHTML = number--;
+  }, speed);
+}
 
-setTimeout(() => {
-  let page = window.open("https://elzero.org", "", "width=300,height=300");
+function counter(from, speed, order) {
+  document.body.appendChild(createCounterDiv(from));
+  startCountDown(speed, order);
+}
+
+function openPopupElzeroWebScool() {
+  let page = window.open(
+    `https://elzero.org/`,
+    `_blanck`,
+    `left=100,top=100,width=320,height=320`
+  );
   page.focus();
-}, 5000);
+}
 
-let counter = setInterval(() => {
-  if (div.innerHTML >= 1) {
-    div.innerHTML -= 1
-  } else {
-    clearTimeout(counter);
-  }
-}, 1000);
+counter(5, 1000, openPopupElzeroWebScool);
