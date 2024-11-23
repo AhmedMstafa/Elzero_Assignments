@@ -1,34 +1,16 @@
-/*
-  Destructuring
-  - Challenge
-*/
-
 let chosen = 1;
 
-let myFriends = [
-  { title: "Osama", age: 39, available: true, skills: ["HTML", "CSS"] },
-  { title: "Ahmed", age: 25, available: false, skills: ["Python", "Django"] },
-  { title: "Sayed", age: 33, available: true, skills: ["PHP", "Laravel"] },
+let myFrieds = [
+  { titel: "Osama", age: 39, availble: true, skills: ["HTML", "CSS"] },
+  { titel: "Ahmed", age: 25, availble: false, skills: ["Phthon", "Django"] },
+  { titel: "Sayed", age: 33, availble: true, skills: ["PHP", "Laravel"] },
 ];
 
+let {
+  titel,
+  age,
+  availble,
+  skills: [first, second],
+} = myFrieds[chosen];
 
-
-if (chosen === 1) {
-  [{ title, age, available, skills: [A, B] },] = myFriends;
-  console.log(title);
-  console.log(age);
-  console.log(available ? "Avilable" : "Not Available");
-  console.log(A, B);
-} else if (chosen === 2) {
-  [, { title, age, available, skills: [A, B] },] = myFriends;
-  console.log(title);
-  console.log(age);
-  console.log(available ? "Avilable" : "Not Available");
-  console.log(A, B);
-} else {
-  [, , { title, age, available, skills: [A, B] }] = myFriends;
-  console.log(title);
-  console.log(age);
-  console.log(available ? "Avilable" : "Not Available");
-  console.log(A, B);
-}
+console.log(titel, age, `${availble ? "Available" : "Not Available"}`, second);

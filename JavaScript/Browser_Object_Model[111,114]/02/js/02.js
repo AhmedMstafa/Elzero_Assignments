@@ -46,7 +46,7 @@ function App() {
     select.value = userInput.select;
   }
 
-  addInputToSessionStorage(text, "blur", userInput.inputText, "text");
+  addInputToSessionStorage(text, "input", userInput.inputText, "text");
   addInputToSessionStorage(date, "change", userInput.inputDelete, "date");
   addInputToSessionStorage(range, "input", userInput.inputRange, "range");
   addInputToSessionStorage(select, "change", userInput.select, "select");
