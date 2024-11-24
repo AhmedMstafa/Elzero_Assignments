@@ -29,22 +29,16 @@ let myFriends = [
 // "Available"
 // "Laravel"
 
-if (chosen === 1) {
-  [{ title, age, available, skills: [one, two] }] = myFriends;
-  console.log(title);
-  console.log(age);
-  console.log(available ? "Available" : "Not Avilable");
-  console.log(`${one} ${two}`);
-} else if (chosen === 2) {
-  [, { title, age, available, skills: [one, two] }] = myFriends;
-  console.log(title);
-  console.log(age);
-  console.log(available ? "Available" : "Not Avilable");
-  console.log(`${one} ${two}`);
-} else {
-  [, , { title, age, available, skills: [one, two] }] = myFriends;
-  console.log(title);
-  console.log(age);
-  console.log(available ? "Available" : "Not Avilable");
-  console.log(`${one} ${two}`);
-}
+let {
+  title,
+  age,
+  available,
+  skills: [, secondSkill],
+} = myFriends[chosen - 1];
+
+console.log(
+  title,
+  age,
+  `${available ? "Available" : "Not Available"}`,
+  secondSkill
+);

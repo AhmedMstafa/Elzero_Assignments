@@ -5,10 +5,14 @@ const member = {
   hobbies: ["Reading", "Swimming", "Programming"],
 };
 
-let { age: a, working: w, country: c, hobbies: [h1, , h3] } = member;
-
-
 // Write Your Destructuring Assignment Here
+
+let {
+  age: a,
+  working: w,
+  country: c,
+  hobbies: [h1, , h3],
+} = member;
 
 console.log(`My Age Is ${a} And Iam ${w ? "" : "Not"} Working`);
 // My Age Is 30 And Iam Not Working
